@@ -4,16 +4,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    {% load static %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Your_Blog | {% block tab_content %}Replace{% endblock %}</title>
+    <style type="text/css">
+      body {
+	  background: url('{% static "/bg.jpg" %}');
+	  background-position: center; /* Center the image */
+	  background-size: 500px auto;
+      }
+      /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    </style>
+
+    <title>Belief Control | {% block tab_content %}Replace{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-danger">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="/">
-        Your_Blog
+	<img src="{% static 'logo_full_res.png' %}" width="50" height="50" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,14 +30,32 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/news">News<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
           </li>
         </ul>
+	<div class="container-left-sm" style='margin-left:10px'>
+	    <a href='https://www.facebook.com/beliefcontrol/'>
+	      <img src="{% static 'facebook-3-64.png' %}" width="20" height="20" alt="">
+	    </a>
+	</div>
+	<div class="container-left-sm" style='margin-left:10px'>
+	  <a href='https://www.facebook.com/beliefcontrol/'>
+	    <img src="{% static 'instagram-64.png' %}" width="20" height="20" alt="">
+	  </a>
+	</div>
+	<div class="container-left-sm" style='margin-left:10px'>
+	    <a href='https://www.facebook.com/beliefcontrol/'>
+	      <img src="{% static 'spotify-64.png' %}" width="20" height="20" alt="">
+	    </a>
+	</div>
       </div>
     </nav>
+    <!-- Hack to make spacing in between the NAV bar and content below -->
+    <div><p></p></div>
+    <!-- End of hack -->
       {% block page_content %}
 
       {% endblock %}
